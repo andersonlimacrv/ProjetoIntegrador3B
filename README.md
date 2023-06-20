@@ -31,25 +31,23 @@ To install and run this project locally, follow the steps below:
    git clone https://github.com/username/repository.git
    ```
    
-
 2. Navigate to the project directory:
 
-  ```bash
+   ```bash
    cd repository
    ```
 
-
 3. Install the necessary dependencies:
 
-  ```bash
+   ```bash
    npm install
-   
+   ```
 
 3. Start the application:
 
-  ```bash
+   ```bash
    npm start
-   
+   ```   
 
 Open your web browser and visit `http://localhost:3000` to access the application.
 
