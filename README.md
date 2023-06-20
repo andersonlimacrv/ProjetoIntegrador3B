@@ -42,8 +42,14 @@ To install and run this project locally, follow the steps below:
    ```bash
    npm install
    ```
+4. Start the PHP server using XAMPP:
 
-3. Start the application:
+- Download and install XAMPP from the [official website](https://www.apachefriends.org/index.html).
+- Start XAMPP and start the Apache and MySQL modules.
+- Copy the cloned project directory to the `htdocs` directory in the XAMPP installation directory.
+- Open a web browser and access `http://localhost/project-name` to access the application.
+
+5. Start the application:
 
    ```bash
    npm start
