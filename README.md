@@ -1,6 +1,6 @@
-# Projeto_Integrador_3B
+# Projeto_Integrador_3B | DonateTrack
 
-## Project Description
+## Project Description:
 
 This project aims to apply the knowledge acquired in Object Oriented Programming and Development for Mobile Devices to develop web applications that address real demands and propose improvements and new strategies in the data storage system of Instituto de Menores Dom Antônio Zattera.
 
