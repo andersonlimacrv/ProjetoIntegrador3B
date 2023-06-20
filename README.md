@@ -19,7 +19,7 @@ To handle the data storage operations, we have chosen **SQLite** as the database
 
 By leveraging the capabilities of these technologies, we aim to create a robust and efficient web application that meets the specific needs of Instituto de Menores Dom Antônio Zattera and contributes to improving their data storage system.
 
-Please refer to the [documentation](doc/) for detailed information on how to set up and use the application.
+Please refer to the [documentation](doc/) for detailed information on how to set up and use the application. * *SOON*
 
 ## Installation
 
@@ -28,7 +28,7 @@ To install and run this project locally, follow the steps below:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/username/repository.git
+   git clone https://github.com/andersonlimacrv/Projeto_Integrador_3B.git
    ```
    
 2. Navigate to the project directory:
