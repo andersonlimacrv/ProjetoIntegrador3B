@@ -19,7 +19,7 @@ To handle the data storage operations, we have chosen **SQLite** as the database
 
 By leveraging the capabilities of these technologies, we aim to create a robust and efficient web application that meets the specific needs of Instituto de Menores Dom Antônio Zattera and contributes to improving their data storage system.
 
-Please refer to the [documentation](doc/) for detailed information on how to set up and use the application. * *SOON*
+Please refer to the [documentation](doc/){:target="_blank"}. for detailed information on how to set up and use the application. * *Soon*
 
 ## Installation
 
@@ -44,10 +44,11 @@ To install and run this project locally, follow the steps below:
    ```
 4. Start the PHP server using XAMPP:
 
-- Download and install XAMPP from the [official website](https://www.apachefriends.org/index.html).
-- Start XAMPP and start the Apache and MySQL modules.
-- Copy the cloned project directory to the `htdocs` directory in the XAMPP installation directory.
-- Open a web browser and access `http://localhost/project-name` to access the application.
+-- Download and install XAMPP from the [official website](https://www.apachefriends.org/index.html){:target="_blank"}.
+
+-- Start XAMPP and start the Apache and MySQL modules.
+-- Copy the cloned project directory to the `htdocs` directory in the XAMPP installation directory.
+-- Open a web browser and access `http://localhost/project-name` to access the application.
 
 5. Start the application:
 
