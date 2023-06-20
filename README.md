@@ -8,10 +8,10 @@ This project aims to apply the knowledge acquired in Object Oriented Programming
 
 The following technologies will be utilized to achieve the proposed objective:
 
-    - **PHP**: PHP will be used to develop the system's business logic, process requests, and interact with the data storage system.
-    - **HTML**: HTML will be used for structuring the web pages and presenting the content to the users.
-    - **CSS**: CSS will be used for styling and enhancing the visual appearance of the web application.
-    - **JavaScript**: JavaScript will be employed to add interactivity and dynamic behavior to the web pages.
+- **PHP**: PHP will be used to develop the system's business logic, process requests, and interact with the data storage system.
+- **HTML**: HTML will be used for structuring the web pages and presenting the content to the users.
+- **CSS**: CSS will be used for styling and enhancing the visual appearance of the web application.
+- **JavaScript**: JavaScript will be employed to add interactivity and dynamic behavior to the web pages.
 
 ### Data Storage System
 
