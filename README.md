@@ -29,13 +29,15 @@ To install and run this project locally, follow the steps below:
 
    ```bash
    git clone https://github.com/username/repository.git
+   ```
    
 
 2. Navigate to the project directory:
 
   ```bash
    cd repository
-   
+   ```
+
 
 3. Install the necessary dependencies:
 
