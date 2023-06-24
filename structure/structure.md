@@ -1,24 +1,29 @@
 Estrutura de diretórios:
 
-- app
-  - Controllers
-  - Models
-  - Views
-- config
-- public
-  - css
-  - js
-- resources
-  - lang
-  - views
-- storage
-  - logs
-  - uploads
-- tests
-- vendor
-- .env
-- composer.json
-- index.php
+├── app
+│   ├── Controllers
+│   ├── Models
+│   └── Views
+├── config
+│   └── database.sqlite
+├── database
+│   └── migrations
+│       └── db.php
+├── public
+│   ├── css
+│   └── js
+├── resources
+│   ├── lang
+│   └── views
+├── storage
+│   ├── logs
+│   └── uploads
+├── tests
+├── vendor
+├── .env
+├── composer.json
+└── index.php
+
 
 **app**: Contém a lógica principal da aplicação.
 
