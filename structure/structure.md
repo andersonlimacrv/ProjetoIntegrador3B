@@ -1,7 +1,8 @@
 Estrutura de diretórios:
 
-├── app
+┌─ app
 │   ├── Controllers
+|   │   └── HomeController.php
 │   ├── Models
 │   └── Views
 ├── config
@@ -15,6 +16,13 @@ Estrutura de diretórios:
 ├── resources
 │   ├── lang
 │   └── views
+│       ├── layouts
+│       │   └── main.php
+│       └── pages
+│           ├── home.php
+│           ├── cadastro_doacao.php
+│           ├── cadastro_item.php
+│           └── visualizar_doacoes.php           
 ├── storage
 │   ├── logs
 │   └── uploads
@@ -23,6 +31,7 @@ Estrutura de diretórios:
 ├── .env
 ├── composer.json
 └── index.php
+
 
 
 **app**: Contém a lógica principal da aplicação.
