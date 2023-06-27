@@ -1,29 +1,37 @@
 Estrutura de diretórios:
 ```
 ┏━ core
-┃  ┣━ controllers
-┃  ┃  ┣━ HomeController.php
-┃  ┃  ┣━ DonationController.php
-┃  ┃  ┣━ ItemController.php
-┃  ┃  ┣━ ViewDonationController.php
-┃  ┃  ┗━ EditItemController.php
-┃  ┣━ models
+┃  ┣━ Controllers
+┃  ┃  ┗━ Pages
+┃  ┃     ┣━ HomeController.php
+┃  ┃     ┣━ DonationController.php
+┃  ┃     ┣━ ItemController.php
+┃  ┃     ┣━ ViewDonationController.php
+┃  ┃     ┗━ EditItemController.php
+┃  ┃
+┃  ┣━ Models
 ┃  ┃  ┣━ Donation.php
 ┃  ┃  ┗━ Item.php
-┃  ┣━ views
-┃  ┃  ┣━ home.php
-┃  ┃  ┣━ donation.php
-┃  ┃  ┣━ item.php
-┃  ┃  ┣━ view_donation.php
-┃  ┃  ┗━ edit_item.php
+┃  ┃
+┃  ┣━ utils
+┃  ┃  ┣━ Views.php
+┃  ┃  ┣━ 
+┃  ┃  ┗━
+┃  ┃
 ┃  ┗━ classes
 ┃     ┣━ Item.php
 ┃     ┣━ Dation.php
 ┃     ┗━ Donor.php
 ┃
-┣━ public
-┃  ┣━ index.php
-┃  ┣━ img
+┣━ resources
+┃  ┣━ View
+┃  ┃  ┗━ Pages
+┃  ┃     ┣━ homeView.html
+┃  ┃     ┣━ registrationDonationView.html
+┃  ┃     ┣━ registrationItemView.html
+┃  ┃     ┣━ editDonationView.html
+┃  ┃     ┗━ editItemView.html
+┃  ┣━ img/
 ┃  ┗━ assets
 ┃     ┣━ css
 ┃     ┃  ┣━ home.css
