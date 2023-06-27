@@ -4,6 +4,9 @@
 
 This project aims to apply the knowledge acquired in Object Oriented Programming and Development for Mobile Devices to develop web applications that address real demands and propose improvements and new strategies in the data storage system of Instituto de Menores Dom Antônio Zattera.
 
+[Description, Motivation and Theoretical Development of this Project.](https://docs.google.com/document/d/1u13RFOiA8z-nKeGTeGPy1pi8w-YcvwkOvG3sob0nZ0Y/edit?usp=sharing)
+
+
 ### Technologies Used
 
 The following technologies will be utilized to achieve the proposed objective:
