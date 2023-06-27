@@ -45,18 +45,9 @@ To install and run this project locally, follow the steps below:
 4. Start the PHP server using XAMPP:
 
    - Download and install XAMPP from the [official website](https://www.apachefriends.org/index.html).
-   - Start XAMPP and start the Apache and MySQL modules.
-   - Copy the cloned project directory to the `htdocs` directory in the XAMPP installation directory.
-   - Open a web browser and access `http://localhost/project-name` to access the application.
-
-5. Start the application:
-
-   ```bash
-   npm start
-   ```   
-
-Open your web browser and visit `http://localhost:3000` to access the application.
-
+   - Open the XAMPP Control Panel >> Start Apache Module.
+   - Copy the cloned project directory to the `htdocs` directory in the XAMPP installation directory. (ex: C:\xampp\htdocs on Windows)
+   - Open a web browser and access `http://localhost/DonateTrack/` to access the application.
 ## Contributing
 
 Contributions are welcome! If you want to contribute to this project, please follow these steps:
