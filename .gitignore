@@ -1,0 +1,35 @@
+# Ignorar arquivos e diretórios gerados pelo sistema operacional
+.DS_Store
+Thumbs.db
+
+# Ignorar arquivos de configuração específicos do ambiente
+.env
+.phpstorm.meta.php
+
+# Ignorar arquivos de log
+/log/*.log
+
+# Ignorar arquivos gerados pelo Composer
+/vendor/
+
+# Ignorar arquivos de build e cache
+/build/
+/cache/
+
+# Ignorar arquivos de sessão e cookies
+/sessions/
+/cookies/
+
+# Ignorar diretório de uploads
+/uploads/
+
+# Ignorar arquivos de backup e temporários
+*.bak
+*.tmp
+
+# Ignorar arquivos de configuração pessoal
+config.php
+config_local.php
+
+# Ignorar arquivos de credenciais
+credentials.txt
