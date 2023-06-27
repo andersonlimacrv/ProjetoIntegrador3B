@@ -37,7 +37,7 @@ To install and run this project locally, follow the steps below:
    cd repository
    ```
 
-3. Install the necessary dependencies:
+3. Install the necessary dependencies (not necessary at moment):
 
    ```bash
    npm install
