@@ -1,5 +1,4 @@
 Estrutura de diretórios:
-
 ┏━ core
 ┃  ┣━ controllers
 ┃  ┃  ┣━ HomeController.php
