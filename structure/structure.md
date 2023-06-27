@@ -1,4 +1,5 @@
 Estrutura de diretórios:
+```
 ┏━ core
 ┃  ┣━ controllers
 ┃  ┃  ┣━ HomeController.php
@@ -49,6 +50,7 @@ Estrutura de diretórios:
 ┃
 ┣━ composer.json
 ┗━ README.md
+```
 
 
 - `core` (diretório principal do aplicativo)
