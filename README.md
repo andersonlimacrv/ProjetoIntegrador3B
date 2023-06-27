@@ -22,7 +22,7 @@ To handle the data storage operations, we have chosen **SQLite** as the database
 
 By leveraging the capabilities of these technologies, we aim to create a robust and efficient web application that meets the specific needs of Instituto de Menores Dom Antônio Zattera and contributes to improving their data storage system.
 
-Please refer to the [documentation](blob/main/structure/structure.md/) for detailed information on how to set up and use the application. * *Soon*
+Please refer to the [documentation](/structure/structure.md/) for detailed information on how to set up and use the application. * *Soon*
 
 ## Installation
 
