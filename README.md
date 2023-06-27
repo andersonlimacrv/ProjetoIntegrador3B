@@ -52,6 +52,8 @@ To install and run this project locally, follow the steps below:
    - Open the XAMPP Control Panel >> Start Apache Module.
    - Copy the cloned project directory to the `htdocs` directory in the XAMPP installation directory. (ex: C:\xampp\htdocs on Windows)
    - Open a web browser and access `http://localhost/DonateTrack/` to access the application.
+   - Download and install COMPOSER from the [official website](https://getcomposer.org/download/).
+   
 ## Contributing
 
 Contributions are welcome! If you want to contribute to this project, please follow these steps:
