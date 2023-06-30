@@ -13,6 +13,6 @@ class HomeController
      */
     public static function getHome()
     {
-        return View::render('Pages/homeView');
+        return View::render('Pages/homeView', ['name' => 'alguma string']);
     }
 }
