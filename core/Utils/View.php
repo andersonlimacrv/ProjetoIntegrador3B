@@ -1,11 +1,11 @@
 <?php
 
-namespace App\utils;
+namespace App\Utils;
 
 class View
 {
     /**
-     * Metodo para retornar o CONTEÚdo da View
+     * Metodo para retornar o CONTEÚDO da View
      *
      * @param string $view 
      * @throws Exception if the view cannot be rendered.
@@ -28,10 +28,12 @@ class View
         //conteudo da view
         $contentView = self::getContentView($view);
 
-        echo "<pre>";
-        print_r($vars);
-        echo "</pre>";
-        exit;
-        return $contentView;
+        //CHAVES DO ARRAY DE VARIAVEIS
+        $keys = array_keys($vars);
+        $keys = array_map(function ($item) {
+            return '{{' . $item . '}}';
+        }, $keys);
+
+        return str_replace($keys, array_values($vars), $contentView);
     }
 }

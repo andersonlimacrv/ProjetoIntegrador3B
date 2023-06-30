@@ -1,0 +1,67 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light gradient-grey">
+        <a class="navbar-brand" href="https://ucpel.edu.br/">
+            <img src="https://ucpel.edu.br/img/footerlogo.png" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-info-circle"></i> About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-cogs"></i> Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-envelope"></i> Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-sign-in-alt"></i> Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<style type="text/css">
+    /* Espaçamento e posicionamento dos links */
+    
+    .navbar-nav {
+        margin-left: auto;
+    }
+    
+    .navbar-nav .nav-link {
+        margin: 10px;
+        border-radius: 5px;
+        text-align: center;
+    }
+    /* Fundo com degradê */
+    
+    .gradient-grey {
+        background: linear-gradient(to bottom, #606060, rgba(0, 0, 0, 0));
+    }
+    /* Cores destacadas em hover */
+    
+    .navbar-nav .nav-link:hover {
+        color: #ff6347;
+        background-color: #f8f9fa;
+    }
+    /* Sublinhado com transição em hover */
+    
+    .navbar-nav .nav-link:hover::after {
+        content: "";
+        display: block;
+        width: 100%;
+        transform: scaleX(0);
+        transition: transform 0.9s ease-in-out;
+    }
+    
+    .navbar-nav .nav-link:hover::after {
+        transform: scaleX(1);
+    }
+</style>

@@ -1,0 +1,84 @@
+<footer class="custom-footer">
+    <div class="navbar navbar-expand bg-light text-center gradient-grey-footer">
+        <ul class="navE container">
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fab fa-facebook fa-lg"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fab fa-twitter fa-lg"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fab fa-instagram fa-lg"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fab fa-youtube fa-lg"></i></a>
+            </li>
+        </ul>
+    </div>
+    <div class="text-center py-3" style="color: white; background: #606060;">
+        © 2023 Universidade Católica de Pelotas | Política de Privacidade
+    </div>
+</footer>
+<style type="text/css">
+    /* Estilo personalizado para o footer */
+    
+    .gradient-grey-footer {
+        background: linear-gradient(to top, #606060, rgba(0, 0, 0, 0));
+    }
+    
+    .custom-footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 0;
+        text-align: center;
+        /* Adiciona alinhamento centralizado */
+    }
+    
+    .custom-footer .navE .nav-item {
+        border-radius: 5px;
+        text-align: center;
+        font-size: 16px;
+        list-style: none;
+        margin-bottom: -10px;
+    }
+    
+    .custom-footer .navE {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .custom-footer .navE .nav-link {
+        text-decoration: none;
+        /* Removido o sublinhado dos links */
+    }
+    
+    .custom-footer .navE .nav-link:hover {
+        color: #ff6347;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+    }
+    
+    .custom-footer .navE .nav-link:hover::after {
+        content: "";
+        display: block;
+        width: 100%;
+        transform: scaleX(0);
+        transition: transform 0.9s ease-in-out;
+    }
+    
+    .custom-footer .navE .nav-link:hover::after {
+        transform: scaleX(1);
+    }
+    
+    .custom-footer .navE {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        padding: 0;
+    }
+</style>

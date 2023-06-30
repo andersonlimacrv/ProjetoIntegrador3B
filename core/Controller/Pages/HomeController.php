@@ -4,7 +4,7 @@ namespace App\Controller\Pages;
 
 use App\Utils\View;
 
-class HomeController
+class HomeController extends PageController
 {
     /**
      * Método reponsável por retornar o conteúdo (view).
@@ -12,7 +12,11 @@ class HomeController
      * @return string Returns the name of the HomeController.
      */
     public static function getHome()
-    {
-        return View::render('Pages/homeView', ['name' => 'alguma string']);
+    {   //VIEW DA HOME
+        $content = View::render('Pages/homeView', ['name' => 'alguma string']);
+
+
+        //RETORNA A VIEW PAGE, USO DE PARENT POIS ESTÁ ESTENDENDO DA CLASSE PAGE, PODERIA SER SELF.
+        return parent::getPage('Controle de Doações', $content);
     }
 }

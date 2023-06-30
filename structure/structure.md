@@ -31,7 +31,7 @@ Estrutura de diretórios:
 ┃  ┃     ┣━ registrationItemView.html
 ┃  ┃     ┣━ editDonationView.html
 ┃  ┃     ┗━ editItemView.html
-┃  ┣━ img/
+┃  ┣━ img/ 
 ┃  ┗━ assets
 ┃     ┣━ css
 ┃     ┃  ┣━ home.css
