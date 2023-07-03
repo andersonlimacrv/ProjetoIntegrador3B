@@ -4,18 +4,27 @@ namespace App\Model\Entity;
 
 class Donation
 {
+    /**
+     * Classe Donation
+     *
+     * Representa uma doação feita por um indivíduo ou organização.
+     *
+     * @property int $id O identificador único da doação.
+     * @property string $donatedBy A entidade (indivíduo ou organização) que fez a doação.
+     * @property mixed $donatedItem O item doado como parte da doação.
+     * @property \DateTime $donationDate A data e hora em que a doação foi feita.
+     */
+
     private $id;
-    private $donateBy;
-    private $amount;
-    private $item;
+    private $donatedBy;
+    private $donatedItem;
     private $donationDate;
 
-    public function __construct($id, $donateBy, $amount, $item)
+    public function __construct($id, $donatedBy, $donatedItem)
     {
         $this->id = $id;
-        $this->donateBy = $donateBy;
-        $this->amount = $amount;
-        $this->item = $item;
+        $this->donatedBy = $donatedBy;
+        $this->donatedItem = $donatedItem;
         $this->donationDate = new \DateTime();
     }
 
@@ -24,34 +33,24 @@ class Donation
         return $this->id;
     }
 
-    public function getDonateBy()
+    public function getDonatedBy()
     {
-        return $this->donateBy;
+        return $this->donatedBy;
     }
 
-    public function setDonateBy($donateBy)
+    public function setDonatedBy($donatedBy)
     {
-        $this->donateBy = $donateBy;
+        $this->donatedBy = $donatedBy;
     }
 
-    public function getAmount()
+    public function getDonatedItem()
     {
-        return $this->amount;
+        return $this->donatedItem;
     }
 
-    public function setAmount($amount)
+    public function setDonatedItem($donatedItem)
     {
-        $this->amount = $amount;
-    }
-
-    public function getItem()
-    {
-        return $this->item;
-    }
-
-    public function setItem($item)
-    {
-        $this->item = $item;
+        $this->donatedItem = $donatedItem;
     }
 
     public function getDonationDate()

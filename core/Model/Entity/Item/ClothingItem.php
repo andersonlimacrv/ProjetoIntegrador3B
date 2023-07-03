@@ -4,17 +4,58 @@ use App\Model\Entity\Item;
 
 class ClothingItem extends Item
 {
+    /**
+     * Tipo de roupa (exemplo: camiseta, calça, vestido)
+     *
+     * @var string
+     */
     private $type;
+
+    /**
+     * Cor da roupa (exemplo: vermelho, azul, preto)
+     *
+     * @var string
+     */
     private $color;
+
+    /**
+     * Condição da roupa (exemplo: nova, usada, desgastada)
+     *
+     * @var string
+     */
     private $condition;
+
+    /**
+     * Tamanho da roupa (exemplo: P, M, G)
+     *
+     * @var string
+     */
     private $size;
+
+    /**
+     * Gênero da roupa (exemplo: masculino, feminino, unissex)
+     *
+     * @var string
+     */
     private $gender;
+
+    /**
+     * Faixa etária da roupa (exemplo: infantil, adulto, idoso)
+     *
+     * @var string
+     */
     private $ageRange;
+
+    /**
+     * Valor estimado da roupa (exemplo: 50.00, 100.00)
+     *
+     * @var float
+     */
     private $estimatedValue;
 
-    public function __construct($id, $name, $description, $type, $color, $condition, $size, $gender, $ageRange, $estimatedValue)
+    public function __construct($id, $description, $type, $color, $condition, $size, $gender, $ageRange, $estimatedValue)
     {
-        parent::__construct($id, $name, $description);
+        parent::__construct($id, $description);
         $this->type = $type;
         $this->color = $color;
         $this->condition = $condition;

@@ -10,8 +10,19 @@ Estrutura de diretórios:
 ┃  ┃     ┗━ EditItemController.php
 ┃  ┃
 ┃  ┣━ Models
-┃  ┃  ┣━ Donation.php
-┃  ┃  ┗━ Item.php
+┃  ┃  ┗━ Entity
+┃  ┃    ┣━ Donation.php
+┃  ┃    ┣━ AnonymousDonor.php
+┃  ┃    ┣━ CNPJDonor.php
+┃  ┃    ┣━ Money.php
+┃  ┃    ┣━ CPFDonor.php
+┃  ┃    ┗━ Item.php
+┃  ┃        ┗━ Item         
+┃  ┃            ┣━ ApplianceItem.php
+┃  ┃            ┣━ DrinkItem.php
+┃  ┃            ┣━ FoodItem.php
+┃  ┃            ┗━ ClothingItem.php
+┃  ┃            ┗━ FurnitureItem.php
 ┃  ┃
 ┃  ┣━ utils
 ┃  ┃  ┣━ Views.php
