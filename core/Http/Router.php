@@ -3,8 +3,8 @@
 namespace App\Http;
 
 use \Closure;
-use Error;
 use \Exception;
+use \ReflectionFunction;
 
 class Router
 {
@@ -35,6 +35,18 @@ class Router
                 continue;
             }
         }
+
+        //Adicionar nova posição  para variaveis da rota dinâmica
+        $params['variables'] = [];
+
+        // Expressão regular - Paddrao de validação das Rotas
+        $patternVariable = '/{(.*?)}/';
+
+        if (preg_match_all($patternVariable, $route, $matches)) {
+            $route = preg_replace($patternVariable, '(.*?)', $route);
+            $params['variables'] = $matches[1];
+        }
+
 
         $patternRoute = '/^' . str_replace('/', '\/', $route) . '$/';
 
@@ -67,9 +79,15 @@ class Router
         $httpMethod = $this->request->getHttpMethod();
 
         foreach ($this->routes as $patternRoute => $methods) {
-            if (preg_match($patternRoute, $uri)) {
-                if ($methods[$httpMethod]) {
-                    return $methods[$httpMethod];
+            if (preg_match($patternRoute, $uri, $matches)) {
+                if (isset($methods[$httpMethod])) {
+                    //Descarta primeira posição que contem URL/{id}/{ação}
+                    unset($methods[0]);
+
+                    //Chaves 
+                    $keys = $methods[$httpMethod]['variables'];
+                    $methods[$httpMethod]['variables'] = array_combine($keys, $matches);
+                    $methods[$httpMethod]['variables']['request'] = $this->request;
                 }
                 throw new Exception('Metodo não permitido', 405);
             }
@@ -93,6 +111,12 @@ class Router
                 throw new Exception('URL não pode ser processada.', 500);
             }
             $args = [];
+
+            $reflection = new ReflectionFunction($route['controller']);
+            foreach ($reflection->getParameters() as $parameter) {
+                $name = $parameter->getName();
+                $args[$name] = $route['varibles'][$name] ?? '';
+            }
 
             return call_user_func_array($route['controller'], $args);
         } catch (Exception $e) {
