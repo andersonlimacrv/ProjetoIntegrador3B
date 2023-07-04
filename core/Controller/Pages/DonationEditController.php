@@ -4,7 +4,7 @@ namespace App\Controller\Pages;
 
 use App\Utils\View;
 
-class HomeController extends PageController
+class DonationEditController extends PageController
 {
     /**
      * Método reponsável por retornar o conteúdo (view).
@@ -13,7 +13,7 @@ class HomeController extends PageController
      */
     public static function getHome()
     {   //VIEW DA HOME
-        $content = View::render('Pages/homeView', ['name' => 'Home']);
+        $content = View::render('Pages/DonationEditView', ['name' => 'Editar doações']);
 
 
         //RETORNA A VIEW PAGE, USO DE PARENT POIS ESTÁ ESTENDENDO DA CLASSE PAGE, PODERIA SER SELF.

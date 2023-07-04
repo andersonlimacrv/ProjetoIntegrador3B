@@ -6,40 +6,13 @@ use \Closure;
 use Error;
 use \Exception;
 
-/**
- * Classe responsável por gerenciar as rotas da aplicação.
- */
 class Router
 {
-    /**
-     * URL atual da requisição.
-     * @var string
-     */
     private $url;
-
-    /**
-     * Rotas registradas.
-     * @var array
-     */
     private $routes = [];
-
-    /**
-     * Prefixo para todas as rotas.
-     * @var string
-     */
     private $prefix = '';
-
-    /**
-     * Objeto da classe Request.
-     * @var Request
-     */
     private $request;
 
-    /**
-     * Construtor da classe Router.
-     *
-     * @param string $url A URL atual da requisição.
-     */
     public function __construct($url)
     {
         $this->request = new Request();
@@ -47,19 +20,14 @@ class Router
         $this->setPrefix();
     }
 
-    /**
-     * Define o prefixo para todas as rotas baseado na URL atual.
-     * O prefixo é extraído da parte do caminho (path) da URL.
-     */
     private function setPrefix()
-    {   // informações da url atual
+    {
         $parseUrl = parse_url($this->url);
-        // define o prefixo
         $this->prefix = $parseUrl['path'] ?? '';
     }
 
     private function addRoute($method, $route, $params = [])
-    { // VALIDAÇÃO DOS PARAMETROS
+    {
         foreach ($params as $key => $value) {
             if ($value instanceof Closure) {
                 $params['controller'] = $value;
@@ -67,17 +35,66 @@ class Router
                 continue;
             }
         }
-        $patternRoute = '/^' . str_replace('/', '\/', $route) . '$';
-        $this->routes[$method][$patternRoute] = $params;
+
+        $patternRoute = '/^' . str_replace('/', '\/', $route) . '$/';
+
+        $this->routes[$patternRoute][$method] = $params;
     }
+
     public function get($route, $params = [])
     {
         return $this->addRoute('GET', $route, $params);
     }
+
+    public function post($route, $params = [])
+    {
+        return $this->addRoute('POST', $route, $params);
+    }
+
+    public function delete($route, $params = [])
+    {
+        return $this->addRoute('DELETE', $route, $params);
+    }
+
+    public function put($route, $params = [])
+    {
+        return $this->addRoute('PUT', $route, $params);
+    }
+
+    private function getRoute()
+    {
+        $uri = $this->getUri();
+        $httpMethod = $this->request->getHttpMethod();
+
+        foreach ($this->routes as $patternRoute => $methods) {
+            if (preg_match($patternRoute, $uri)) {
+                if ($methods[$httpMethod]) {
+                    return $methods[$httpMethod];
+                }
+                throw new Exception('Metodo não permitido', 405);
+            }
+        }
+        throw new Exception('URL não encontrada', 404);
+    }
+
+    private function getUri()
+    {
+        $uri = $this->request->getUri();
+        $xUri = strlen($this->prefix) ? explode($this->prefix, $uri) : [$uri];
+        return end($xUri);
+    }
+
     public function run()
     {
         try {
-            throw new Exception("Página naaao encontradda, pai", 404);
+            $route = $this->getRoute();
+
+            if (!isset($route['controller'])) {
+                throw new Exception('URL não pode ser processada.', 500);
+            }
+            $args = [];
+
+            return call_user_func_array($route['controller'], $args);
         } catch (Exception $e) {
             return new Response($e->getCode(), $e->getMessage());
         }

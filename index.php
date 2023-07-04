@@ -3,19 +3,13 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use \App\Http\Router;
-use \App\Http\Response;
-use \App\Controller\Pages\HomeController;
 
-define('URL', 'http://localhost/donatetrack/');
+
+define('URL', 'http://localhost/donatetrack');
+
 
 $obRouter = new Router(URL);
-//Rota Home
+include __DIR__ . '/routes/pages.php'; // Controle de Rotas e direcionamento das páginas
 
-$obRouter->get('/', [
-    function () {
-        return new Response(200, HomeController::getHome());
-    }
-]);
-
-$obRouter->run()
-    ->sendResponse();
+// IMPPRIME O RESPONSE DA ROTA
+$obRouter->run()->sendResponse();
