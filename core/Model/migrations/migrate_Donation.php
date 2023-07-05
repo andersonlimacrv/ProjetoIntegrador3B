@@ -8,10 +8,14 @@ $db->exec("
         donatedItemType TEXT NOT NULL,
         donatedItemReferenceId INTEGER NOT NULL,
         donationDate DATE NOT NULL,
+        moneyId INTEGER,
         FOREIGN KEY (donorId) REFERENCES donors(id),
-        FOREIGN KEY (donatedItemReferenceId) REFERENCES items(id)
+        FOREIGN KEY (donatedItemReferenceId) REFERENCES items(id),
+        FOREIGN KEY (moneyId) REFERENCES money(id)
     )
 ");
+
+
 
 // Inicialização;
 $db->exec("

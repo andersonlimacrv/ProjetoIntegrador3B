@@ -1,3 +1,5 @@
+<?php
+
 $db->exec("
 CREATE TABLE IF NOT EXISTS donors (
 id INTEGER PRIMARY KEY,
