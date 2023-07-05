@@ -53,3 +53,8 @@ class GenericItem extends Item
 {
     // Adicione propriedades e métodos específicos para itens genéricos, se necessário
 }
+
+class DrinkItem extends Item
+{
+    // Adicione propriedades e métodos específicos para itens de alimento, se necessário
+}
