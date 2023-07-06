@@ -1,5 +1,392 @@
-<h1 class="container text-center">
-    PÁGINA PARA FAZER DOAÇÕES
-</h1>
+<div class="container mt-5 ">
+    <h2 class="text-center badge-dark">Formulário de Doação</h2>
+    <form action="process_form.php" method="POST" class="d-flex justify-content-center flex-column text-center">
+        <div class="form-group container-sm text-light-emphasis">
 
-<p class="container text-center mt-3"> Página {{name}} </p>
+            <div class="form-check mt-5 ml-1">
+                <input class="form-check-input" type="radio" name="donorType" id="anonymous" value="anonymous">
+                <label class="form-check-label" for="anonymous">Doador Anônimo</label>
+            </div>
+            <div class="form-check mt-3">
+                <input class="form-check-input" type="radio" name="donorType" id="cpf" value="cpf">
+                <label class="form-check-label" for="cpf">Doador com CPF</label>
+            </div>
+            <div class="form-check mt-3 ml-1">
+                <input class="form-check-input" type="radio" name="donorType" id="cnpj" value="cnpj">
+                <label class="form-check-label" for="cnpj">Doador com CNPJ</label>
+            </div>
+        </div>
+
+        <!-- Campos para Doador Anônimo -->
+        <div id="anonymousFields" class="additional-fields" style="display: none;">
+            <h3>Doador Anônimo</h3>
+            <div class="form-group">
+                <label for="anonymousName">Nome:</label>
+                <input type="text" class="form-control" id="anonymousName" name="anonymousName">
+            </div>
+        </div>
+
+        <!-- Campos para Doador com CPF -->
+        <div id="cpfFields" class="additional-fields" style="display: none;">
+            <h3>Doador com CPF</h3>
+            <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" class="form-control" id="cpf" name="cpf">
+            </div>
+            <div class="form-group">
+                <label for="cpfName">Nome:</label>
+                <input type="text" class="form-control" id="cpfName" name="cpfName">
+            </div>
+        </div>
+
+        <!-- Campos para Doador com CNPJ -->
+        <div id="cnpjFields" class="additional-fields" style="display: none;">
+            <h3>Doador com CNPJ</h3>
+            <div class="form-group">
+                <label for="cnpj">CNPJ:</label>
+                <input type="text" class="form-control" id="cnpj" name="cnpj">
+            </div>
+            <div class="form-group">
+                <label for="cnpjName">Razão Social:</label>
+                <input type="text" class="form-control" id="cnpjName" name="cnpjName">
+            </div>
+        </div>
+
+
+        <div class="form-group d-flex justify-content-center">
+            <label for="donatedItemType"><b>ITEM A SER DOADO &rarr; </b></label>
+            <select class="form-control small-input" id="donatedItemType" name="donatedItemType">
+                <option value="" selected></option>
+                <option value="Money">Dinheiro</option>
+                <option value="ApplianceItem">Eletrodoméstico</option>
+                <option value="ClothingItem">Roupa</option>
+                <option value="FoodItem">Comida</option>
+                <option value="FurnitureItem">Móvel</option>
+                <option value="DrinkItem">Bebida</option>
+                <option value="GenericItem">Item Genérico</option>
+            </select>
+        </div>
+
+        <div class="centralizado">
+            <div class="form-group p-4">
+                <label for="description">Descrição do Item:</label>
+                <input type="text" class="form-control" id="description" name="description">
+            </div>
+            <div class="centralizado">
+                <div id="additional-fields" class="form-group">
+                    <!-- Campos adicionais serão inseridos aqui dinamicamente -->
+                </div>
+            </div>
+            <div class="container-md text-center mt-1">
+                <button type="submit" id="donate-btn" class="btn btn-primary btn-lg btn-shake align-content-center">
+                    Cadastrar Doação
+                    <i class="fas fa-hand-holding-heart fa-3x size-menor"></i>
+                </button>
+            </div>
+        </div>
+        <div class="margem-bottom">
+
+        </div>
+
+    </form>
+</div>
+
+
+<style>
+    input {
+        background-color: rgb(117, 138, 176, 0.3)!important;
+    }
+    
+    .margem-bottom {
+        height: 200px;
+    }
+    
+    .centralizado {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .badge-dark {
+        background-color: #758AB0;
+        border-radius: 10px;
+        box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.7);
+    }
+    
+    option,
+    select {
+        text-align: center;
+        padding: 2px!important;
+        background-color: rgb(117, 138, 176, 0.3)!important;
+        margin: 0px!important;
+    }
+    
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+    }
+    
+    .small-input {
+        width: 200px;
+        height: 30px;
+        font-size: 14px;
+    }
+    
+    .size-menor {
+        font-size: 20px;
+    }
+    
+    .btn-shake:hover .fa-hand-holding-heart {
+        animation: shake 1s;
+    }
+    
+    @keyframes shake {
+        0% {
+            transform: translate(1px, 0);
+        }
+        20% {
+            transform: translate(5px, 0);
+        }
+        40% {
+            transform: translate(-5px, 0);
+        }
+        60% {
+            transform: translate(5px, 0);
+        }
+        80% {
+            transform: translate(-5px, 0);
+        }
+        100% {
+            transform: translate(0, 0);
+        }
+    }
+</style>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#donate-btn').click(function() {
+            var btn = $(this);
+            btn.html('<i class="fas fa-spinner fa-spin"></i> Enviando...');
+
+            setTimeout(function() {
+                btn.html(`
+                Cadastrar Doação
+                <i class="fas fa-hand-holding-heart fa-3x"></i>
+            `);
+            }, 5000);
+        });
+    });
+
+    $(document).ready(function() {
+        $('.form-check-input').on('change', function() {
+            var selectedType = $(this).val();
+
+            // Oculta todos os campos adicionais
+            $('.additional-fields').hide();
+
+            // Exibe os campos adicionais correspondentes à opção selecionada
+            if (selectedType === 'anonymous') {
+                $('#anonymousFields').show();
+            } else if (selectedType === 'cpf') {
+                $('#cpfFields').show();
+            } else if (selectedType === 'cnpj') {
+                $('#cnpjFields').show();
+            }
+
+            // Oculta campos adicionais se nenhuma opção estiver selecionada
+            if ($('.form-check-input:checked').length === 0) {
+                $('.additional-fields').hide();
+            }
+        });
+    });
+
+    // Função para exibir os campos adicionais de acordo com o tipo de item selecionado
+    $('#donatedItemType').on('change', function() {
+        var selectedType = $(this).val();
+        var additionalFieldsContainer = $('#additional-fields');
+        additionalFieldsContainer.empty();
+
+        // Insere os campos adicionais correspondentes ao tipo de item selecionado
+        if (selectedType === 'ApplianceItem') {
+            additionalFieldsContainer.append(`
+                    <div class="form-group">
+                        <label for="brand">Marca:</label>
+                        <input type="text" class="form-control input-group-medium" id="brand" name="brand" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="model">Modelo:</label>
+                        <input type="text" class="form-control input-group-medium" id="model" name="model" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="power">Potência:</label>
+                        <input type="number" step="0.01" class="form-control" id="power" name="power" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="voltage">Tensão:</label>
+                        <input type="number" class="form-control" id="voltage" name="voltage" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="needsRepair">Necessita de reparo:</label>
+                        <select class="form-control" id="needsRepair" name="needsRepair" required>
+                            <option value="0">Não</option>
+                            <option value="1">Sim</option>
+                        </select>
+                    </div>
+                `);
+        } else if (selectedType === 'ClothingItem') {
+            additionalFieldsContainer.append(`
+                    <div class="form-group">
+                        <label for="type">Tipo de Roupa:</label>
+                        <input type="text" class="form-control" id="type" name="type" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="color">Cor:</label>
+                        <input type="text" class="form-control" id="color" name="color" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="condition">Condição:</label>
+                            <input type="text" class="form-control" id="condition" name="condition" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="size">Tamanho:</label>
+                            <input type="text" class="form-control" id="size" name="size" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gênero:</label>
+                            <input type="text" class="form-control" id="gender" name="gender" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ageRange">Faixa Etária:</label>
+                            <input type="text" class="form-control" id="ageRange" name="ageRange" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="estimatedValue">Valor Estimado:</label>
+                            <input type="number" step="0.01" class="form-control" id="estimatedValue" name="estimatedValue" required>
+                        </div>
+                    `);
+        } else if (selectedType === 'FoodItem') {
+            additionalFieldsContainer.append(`
+                        <div class="form-group">
+                            <label for="type">Tipo de Comida:</label>
+                            <input type="text" class="form-control" id="type" name="type" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Quantidade:</label>
+                            <input type="number" step="0.01" class="form-control" id="quantity" name="quantity" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="unit">Unidade de Medida:</label>
+                            <input type="text" class="form-control" id="unit" name="unit" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expiryDate">Data de Validade:</label>
+                            <input type="date" class="form-control" id="expiryDate" name="expiryDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ingredients">Ingredientes:</label>
+                            <input type="text" class="form-control" id="ingredients" name="ingredients" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="allergens">Alergênicos:</label>
+                            <input type="text" class="form-control" id="allergens" name="allergens" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="taste">Sabor:</label>
+                            <input type="text" class="form-control" id="taste" name="taste" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="isPerishable">Perecível:</label>
+                            <select class="form-control" id="isPerishable" name="isPerishable" required>
+                                <option value="0">Não</option>
+                                <option value="1">Sim</option>
+                            </select>
+                        </div>
+                    `);
+        } else if (selectedType === 'FurnitureItem') {
+            additionalFieldsContainer.append(`
+                        <div class="form-group">
+                            <label for="brand">Marca:</label>
+                            <input type="text" class="form-control" id="brand" name="brand" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="material">Material:</label>
+                            <input type="text" class="form-control" id="material" name="material" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="condition">Condição:</label>
+                            <input type="text" class="form-control" id="condition" name="condition" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dimensions">Dimensões:</label>
+                            <input type="text" class="form-control" id="dimensions" name="dimensions" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="weight">Peso:</label>
+                            <input type="number" step="0.01" class="form-control" id="weight" name="weight" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="estimatedValue">Valor Estimado:</label>
+                            <input type="number" step="0.01" class="form-control" id="estimatedValue" name="estimatedValue" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="usage">Uso Específico:</label>
+                            <input type="text" class="form-control" id="usage" name="usage" required>
+                        </div>
+                    `);
+        } else if (selectedType === 'DrinkItem') {
+            additionalFieldsContainer.append(`
+        <div class="form-group">
+            <label for="type">Tipo de Bebida:</label>
+            <input type="text" class="form-control" id="type" name="type" required>
+        </div>
+        <div class="form-group">
+            <label for="quantity">Quantidade:</label>
+            <input type="number" step="0.01" class="form-control" id="quantity" name="quantity" required>
+        </div>
+        <div class="form-group">
+            <label for="unit">Unidade de Medida:</label>
+            <input type="text" class="form-control" id="unit" name="unit" required>
+        </div>
+        <div class="form-group">
+            <label for="expiryDate">Data de Validade:</label>
+            <input type="date" class="form-control" id="expiryDate" name="expiryDate" required>
+        </div>
+        <div class="form-group">
+            <label for="ingredients">Ingredientes:</label>
+            <input type="text" class="form-control" id="ingredients" name="ingredients" required>
+        </div>
+        <div class="form-group">
+            <label for="isCarbonated">Carbonatada:</label>
+            <select class="form-control" id="isCarbonated" name="isCarbonated" required>
+                <option value="0">Não</option>
+                <option value="1">Sim</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="isAlcoholic">Alcoólica:</label>
+            <select class="form-control" id="isAlcoholic" name="isAlcoholic" required>
+                <option value="0">Não</option>
+                <option value="1">Sim</option>
+            </select>
+        </div>
+    `);
+        } else if (selectedType === 'Money') {
+            additionalFieldsContainer.append(`
+        <div class="form-group">
+            <label for="currency">Moeda:</label>
+            <input type="text" class="form-control" id="currency" name="currency" required>
+        </div>
+        <div class="form-group">
+            <label for="amount">Valor:</label>
+            <input type="number" step="0.01" class="form-control" id="amount" name="amount" required>
+        </div>
+    `);
+        }
+    });
+</script>
