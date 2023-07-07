@@ -71,7 +71,7 @@
             <table class="table table-hover">
                 <tbody>
                     <tr>
-                        <td><label for="donatedItemType"><b>Item para doação &rarr;</b></label></td>
+                        <td><label for="donatedItemType"><b>Item para doação 👉</b></label></td>
                         <td>
                             <select class="form-control small-input" id="donatedItemType" name="donatedItemType" required>
                       <option value="" selected></option>
@@ -203,7 +203,7 @@
                 Cadastrar Doação
                 <i class="fas fa-hand-holding-heart fa"></i>
             `);
-            }, 5000);
+            }, 3000);
         });
     });
 
@@ -236,6 +236,15 @@
         var additionalFieldsContainer = $('#additional-fields');
         additionalFieldsContainer.empty();
 
+        if (selectedType !== 'Money') {
+            additionalFieldsContainer.append(`
+            <div class="form-group">
+                        <label for="estimatedValue">Valor estimado do Item(R$):</label>
+                        <input type="number" class="form-control input-group-medium" id="estimatedValue" name="estimatedValue" required>
+                    </div>
+            `);
+        }
+
         // Insere os campos adicionais correspondentes ao tipo de item selecionado
         if (selectedType === 'ApplianceItem') {
             additionalFieldsContainer.append(`
@@ -249,7 +258,7 @@
                     </div>
                     <div class="form-group">
                         <label for="power">Potência em Watt (W):</label>
-                        <input type="number" step="0.01" class="form-control" id="power" name="power" required>
+                        <input type="number" class="form-control" id="power" name="power" required>
                     </div>
                     <div class="form-group">
                         <label for="voltage">Tensão em Volts (110/220v):</label>
@@ -278,20 +287,16 @@
                             <input type="text" class="form-control" id="condition" name="condition" required>
                         </div>
                         <div class="form-group">
-                            <label for="size">Tamanho:</label>
+                            <label for="size">Tamanho(M, L, XL, etc.):</label>
                             <input type="text" class="form-control" id="size" name="size" required>
                         </div>
                         <div class="form-group">
-                            <label for="gender">Gênero:</label>
+                            <label for="gender">Gênero(Masculino, feminino, etc.):</label>
                             <input type="text" class="form-control" id="gender" name="gender" required>
                         </div>
                         <div class="form-group">
-                            <label for="ageRange">Faixa Etária:</label>
+                            <label for="ageRange">Faixa Etária(Adulto, adolescente, infantil, etc.):</label>
                             <input type="text" class="form-control" id="ageRange" name="ageRange" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="estimatedValue">Valor Estimado:</label>
-                            <input type="number" step="0.01" class="form-control" id="estimatedValue" name="estimatedValue" required>
                         </div>
                     `);
         } else if (selectedType === 'FoodItem') {
@@ -302,10 +307,10 @@
                         </div>
                         <div class="form-group">
                             <label for="quantity">Quantidade:</label>
-                            <input type="number" step="0.01" class="form-control" id="quantity" name="quantity" required>
+                            <input type="number" class="form-control" id="quantity" name="quantity" required>
                         </div>
                         <div class="form-group">
-                            <label for="unit">Unidade de Medida:</label>
+                            <label for="unit">Unidade de Medida(Kg, unidade, etc.):</label>
                             <input type="text" class="form-control" id="unit" name="unit" required>
                         </div>
                         <div class="form-group">
@@ -314,11 +319,11 @@
                         </div>
                         <div class="form-group">
                             <label for="ingredients">Ingredientes:</label>
-                            <input type="text" class="form-control" id="ingredients" name="ingredients" required>
+                            <input type="text" class="form-control" id="ingredients" name="ingredients">
                         </div>
                         <div class="form-group">
-                            <label for="allergens">Alergênicos:</label>
-                            <input type="text" class="form-control" id="allergens" name="allergens" required>
+                            <label for="allergens">Alergênicos(ex: glútem, lactose, etc.):</label>
+                            <input type="text" class="form-control" id="allergens" name="allergens">
                         </div>
                         <div class="form-group">
                             <label for="taste">Sabor:</label>
@@ -339,42 +344,38 @@
                             <input type="text" class="form-control" id="brand" name="brand" required>
                         </div>
                         <div class="form-group">
-                            <label for="material">Material:</label>
+                            <label for="material">Material (Madeira, MDF, etc.):</label>
                             <input type="text" class="form-control" id="material" name="material" required>
                         </div>
                         <div class="form-group">
-                            <label for="condition">Condição:</label>
+                            <label for="condition">Condição (Usado/ Novo, etc.):</label>
                             <input type="text" class="form-control" id="condition" name="condition" required>
                         </div>
                         <div class="form-group">
-                            <label for="dimensions">Dimensões:</label>
+                            <label for="dimensions">Dimensões (Largura x Altura x Profundidade):</label>
                             <input type="text" class="form-control" id="dimensions" name="dimensions" required>
                         </div>
                         <div class="form-group">
-                            <label for="weight">Peso:</label>
-                            <input type="number" step="0.01" class="form-control" id="weight" name="weight" required>
+                            <label for="weight">Peso (Kg):</label>
+                            <input type="number" class="form-control" id="weight" name="weight" required>
                         </div>
                         <div class="form-group">
-                            <label for="estimatedValue">Valor Estimado:</label>
-                            <input type="number" step="0.01" class="form-control" id="estimatedValue" name="estimatedValue" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="usage">Uso Específico:</label>
+                            <label for="usage">Uso Específico( Ex: Quarto / Sala , etc.):</label>
                             <input type="text" class="form-control" id="usage" name="usage" required>
                         </div>
                     `);
         } else if (selectedType === 'DrinkItem') {
             additionalFieldsContainer.append(`
         <div class="form-group">
-            <label for="type">Tipo de Bebida:</label>
+            <label for="type">Tipo de Bebida(Refrigerante, Suco, Leite, etc.):</label>
             <input type="text" class="form-control" id="type" name="type" required>
         </div>
         <div class="form-group">
             <label for="quantity">Quantidade:</label>
-            <input type="number" step="0.01" class="form-control" id="quantity" name="quantity" required>
+            <input type="number" class="form-control" id="quantity" name="quantity" required>
         </div>
         <div class="form-group">
-            <label for="unit">Unidade de Medida:</label>
+            <label for="unit">Unidade de Medida (Litro, mL):</label>
             <input type="text" class="form-control" id="unit" name="unit" required>
         </div>
         <div class="form-group">
@@ -383,10 +384,10 @@
         </div>
         <div class="form-group">
             <label for="ingredients">Ingredientes:</label>
-            <input type="text" class="form-control" id="ingredients" name="ingredients" required>
+            <input type="text" class="form-control" id="ingredients" name="ingredients">
         </div>
         <div class="form-group">
-            <label for="isCarbonated">Carbonatada:</label>
+            <label for="isCarbonated">Gaseificada:</label>
             <select class="form-control" id="isCarbonated" name="isCarbonated" required>
                 <option value="0">Não</option>
                 <option value="1">Sim</option>
@@ -408,7 +409,7 @@
         </div>
         <div class="form-group">
             <label for="amount">Valor:</label>
-            <input type="number" step="0.01" class="form-control" id="amount" name="amount" required>
+            <input type="number" class="form-control" id="amount" name="amount" required>
         </div>
     `);
         }
