@@ -6,6 +6,7 @@ use \App\Controller\Pages\HomeController;
 use \App\Controller\Pages\DonationEditController;
 use \App\Controller\Pages\DonationListController;
 use \App\Controller\Pages\DonateController;
+use \App\Model\Entity\Donation;
 
 
 //ROTA HOME GET
@@ -32,7 +33,22 @@ $obRouter->get('/doar', [
 // ROTA DE CADASTRO DE DOAÇÕES POST 
 $obRouter->post('/doar', [
     function () {
-        return new Response(200, DonateController::getHome());
+        // Processa os dados do formulário
+        // ...
+
+        // Exemplo: Verifica se ocorreu algum erro ao processar os dados
+        $error = false; // Defina essa variável com base na validação ou manipulação dos dados
+
+        if (!$error) {
+            $message = 'Doação realizada com sucesso!';
+            $alertType = 'success';
+        } else {
+            $message = 'Erro ao processar a doação. Por favor, tente novamente.';
+            $alertType = 'danger';
+        }
+
+        // Renderiza a página com a mensagem
+        return new Response(200, DonateController::getHome(['message' => $message, 'alertType' => $alertType]));
     }
 ]);
 
@@ -63,3 +79,26 @@ $obRouter->post('/editar', [
         return new Response(200, DonationEditController::getHome());
     }
 ]);
+
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Captura os dados do formulário
+    $formData = $_POST;
+
+    // Chama a função process_form e passa os dados do formulário e a conexão PDO
+    process_form($formData);
+}
+
+function process_form($formData)
+{
+    $db = new PDO('sqlite:database.sqlite', '', '', [
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+    ]);
+
+    $donation = new Donation(1, 'John Doe', 'Shirt'); // Exemplo de instância de doação
+    $donation->donationSave($formData, $db);
+
+    // Redirecionar para a página de sucesso
+    header("Location: /donatetrack/visualizar");
+    exit(); // Certifica-se de que o script seja encerrado após o redirecionamento
+}

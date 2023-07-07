@@ -5,9 +5,9 @@ require __DIR__ . '/vendor/autoload.php';
 use \App\Http\Router;
 
 // Conexão com o banco de dados
-$db = new PDO('sqlite:database.sqlite', '', '', [
+/* $db = new PDO('sqlite:database.sqlite', '', '', [
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
-]);
+]); */
 
 
 

@@ -13,7 +13,7 @@ class DonateController extends PageController
      */
     public static function getHome()
     {   //VIEW DA HOME
-        $content = View::render('Pages/DonateView', ['name' => 'Realizar doações']);
+        $content = View::render('Pages/DonateView',);
 
 
         //RETORNA A VIEW PAGE, USO DE PARENT POIS ESTÁ ESTENDENDO DA CLASSE PAGE, PODERIA SER SELF.
