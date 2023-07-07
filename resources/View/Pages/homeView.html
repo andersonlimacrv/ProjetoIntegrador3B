@@ -1,10 +1,92 @@
-<h1 class="container text-center"> {{name}}</h1>
-
-
-<div class="container-sm text-center mt-5">
-    Olá mundo
-</div>
-<hr>
 <style>
-
+    .container-right {
+        margin-top: 50px;
+    }
+    
+    .container-home {
+        background-image: url(https://i.imgur.com/TBYyHxh.png);
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height: 80vh;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        z-index: -1;
+        position: fixed;
+        opacity: 0.5;
+    }
+    
+    .card {
+        background-color: rgba(0, 0, 0, 0.5);
+        border: none;
+        border-radius: 50px;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        color: #FFF;
+        margin-bottom: 20px;
+    }
+    
+    .card-title,
+    p a {
+        font-size: 24px;
+        font-weight: bold;
+        color: #b9c6e0;
+        margin-bottom: 10px;
+        text-shadow: #000 1px 1px 1px;
+    }
+    
+    .card-text {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    
+    .margin-bottom {
+        height: 100px;
+    }
 </style>
+</head>
+
+<body>
+
+    <div class="container-home"></div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Incentive a Solidariedade</h4>
+                        <p class="card-text">O Carnê do Contribuinte surgiu como forma de incentivar, facilitar e valorizar as mãos que nos ajudam. Para isso, resolvemos adotar a modalidade anual em forma de boletos mensais.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Faça a Diferença</h4>
+                        <p class="card-text">As doações podem ser de alimentos, roupas, material escolar, entre outros itens, como é possível ver nas fotos postadas em nosso blog, ou ainda através do Projeto Nossas Mãos Transformam Vidas, que gera carnê anual com boletos
+                            mensais. Confira nosso site: <a href="https://institutodemenores.wixsite.com/meusite/doe">https://institutodemenores.wixsite.com/meusite/doe</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Escolha sua Contribuição</h4>
+                        <p class="card-text">Você escolhe o valor e o dia de sua preferência, e nós confeccionamos os carnês e levamos até você no endereço indicado.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Transforme Vidas</h4>
+                        <p class="card-text">E assim, as suas mãos nos ajudam a transformar muitas vidas.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Projeto Dom Antonio Zattera</h4>
+                        <p class="card-text">Conheça o Projeto Dom Antonio Zattera da UCPel, uma iniciativa que busca promover a solidariedade e a inclusão social. Saiba mais em: <a href="https://www.ucpel.edu.br/projeto-dom-antonio-zattera/">https://www.ucpel.edu.br/projeto-dom-antonio-zattera/</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="margin-bottom"></div>
