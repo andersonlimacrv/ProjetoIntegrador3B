@@ -1,71 +1,94 @@
 <div class="container mt-5 ">
     <h2 class="text-center badge-dark">Formulário de Doação</h2>
-    <form action="process_form.php" method="POST" class="d-flex justify-content-center flex-column text-center">
+    <form action="" method="POST" class="d-flex justify-content-center flex-column text-center container-sm m-md-4">
         <div class="form-group container-sm text-light-emphasis">
 
             <div class="form-check mt-5 ml-1">
-                <input class="form-check-input" type="radio" name="donorType" id="anonymous" value="anonymous">
+                <input class="form-check-input" type="radio" name="donorType" id="anonymous" value="anonymous" checked>
                 <label class="form-check-label" for="anonymous">Doador Anônimo</label>
+                <br>
             </div>
             <div class="form-check mt-3">
                 <input class="form-check-input" type="radio" name="donorType" id="cpf" value="cpf">
                 <label class="form-check-label" for="cpf">Doador com CPF</label>
+                <br>
             </div>
             <div class="form-check mt-3 ml-1">
                 <input class="form-check-input" type="radio" name="donorType" id="cnpj" value="cnpj">
                 <label class="form-check-label" for="cnpj">Doador com CNPJ</label>
+                <br>
             </div>
         </div>
-
-        <!-- Campos para Doador Anônimo -->
         <div id="anonymousFields" class="additional-fields" style="display: none;">
-            <h3>Doador Anônimo</h3>
-            <div class="form-group">
-                <label for="anonymousName">Nome:</label>
-                <input type="text" class="form-control" id="anonymousName" name="anonymousName">
-            </div>
+            <!-- Campos para Doador Anônimo -->
+            <h2 class="">Doador Anônimo</h2>
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td><label for="anonymousName">Nome:</label></td>
+                        <td><input type="text" class="form-control" id="anonymousName" name="anonymousName"></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
-        <!-- Campos para Doador com CPF -->
         <div id="cpfFields" class="additional-fields" style="display: none;">
+            <!-- Campos para Doador com CPF -->
             <h3>Doador com CPF</h3>
-            <div class="form-group">
-                <label for="cpf">CPF:</label>
-                <input type="text" class="form-control" id="cpf" name="cpf">
-            </div>
-            <div class="form-group">
-                <label for="cpfName">Nome:</label>
-                <input type="text" class="form-control" id="cpfName" name="cpfName">
-            </div>
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td><label for="cpf">CPF:</label></td>
+                        <td><input type="text" class="form-control" id="cpf" name="cpf"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="cpfName">Nome:</label></td>
+                        <td><input type="text" class="form-control" id="cpfName" name="cpfName"></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
-        <!-- Campos para Doador com CNPJ -->
         <div id="cnpjFields" class="additional-fields" style="display: none;">
+            <!-- Campos para Doador com CNPJ -->
             <h3>Doador com CNPJ</h3>
-            <div class="form-group">
-                <label for="cnpj">CNPJ:</label>
-                <input type="text" class="form-control" id="cnpj" name="cnpj">
-            </div>
-            <div class="form-group">
-                <label for="cnpjName">Razão Social:</label>
-                <input type="text" class="form-control" id="cnpjName" name="cnpjName">
-            </div>
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td><label for="cnpj">CNPJ:</label></td>
+                        <td><input type="text" class="form-control" id="cnpj" name="cnpj"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="cnpjName">Razão Social:</label></td>
+                        <td><input type="text" class="form-control" id="cnpjName" name="cnpjName"></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
 
         <div class="form-group d-flex justify-content-center">
-            <label for="donatedItemType"><b>ITEM A SER DOADO &rarr; </b></label>
-            <select class="form-control small-input" id="donatedItemType" name="donatedItemType">
-                <option value="" selected></option>
-                <option value="Money">Dinheiro</option>
-                <option value="ApplianceItem">Eletrodoméstico</option>
-                <option value="ClothingItem">Roupa</option>
-                <option value="FoodItem">Comida</option>
-                <option value="FurnitureItem">Móvel</option>
-                <option value="DrinkItem">Bebida</option>
-                <option value="GenericItem">Item Genérico</option>
-            </select>
+            <!-- Campo para seleção do tipo de item doado -->
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td><label for="donatedItemType"><b>Item para doação &rarr;</b></label></td>
+                        <td>
+                            <select class="form-control small-input" id="donatedItemType" name="donatedItemType" required>
+                      <option value="" selected></option>
+                      <option value="Money">Dinheiro</option>
+                      <option value="ApplianceItem">Eletrodoméstico</option>
+                      <option value="ClothingItem">Roupa</option>
+                      <option value="FoodItem">Comida</option>
+                      <option value="FurnitureItem">Móvel</option>
+                      <option value="DrinkItem">Bebida</option>
+                      <option value="GenericItem">Item Genérico</option>
+                    </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+
 
         <div class="centralizado">
             <div class="form-group p-4">
@@ -93,6 +116,11 @@
 
 
 <style>
+    .table-hover {
+        border: 1px solid rgb(117, 138, 176, 0.3)!important;
+        border-radius: 10px;
+    }
+    
     input {
         background-color: rgb(117, 138, 176, 0.3)!important;
     }
