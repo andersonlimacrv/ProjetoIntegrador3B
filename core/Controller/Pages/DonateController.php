@@ -11,7 +11,7 @@ class DonateController extends PageController
      *
      * @return string Returns the name of the HomeController.
      */
-    public static function getHome()
+    public static function getDonate()
     {   //VIEW DA HOME
         $content = View::render('Pages/DonateView',);
 

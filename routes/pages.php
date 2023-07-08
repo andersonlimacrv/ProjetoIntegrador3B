@@ -7,6 +7,7 @@ use \App\Controller\Pages\DonationEditController;
 use \App\Controller\Pages\DonationListController;
 use \App\Controller\Pages\DonateController;
 use \App\Model\Entity\Donation;
+use \App\Utils\View;
 
 
 //ROTA HOME GET
@@ -26,7 +27,7 @@ $obRouter->post('/', [
 // ROTA DE CADASTRO DE DOAÇÕES GET
 $obRouter->get('/doar', [
     function () {
-        return new Response(200, DonateController::getHome());
+        return new Response(200, DonateController::getDonate());
     }
 ]);
 
@@ -48,21 +49,21 @@ $obRouter->post('/doar', [
         }
 
         // Renderiza a página com a mensagem
-        return new Response(200, DonateController::getHome(['message' => $message, 'alertType' => $alertType]));
+        return new Response(200, DonateController::getDonate(['message' => $message, 'alertType' => $alertType]));
     }
 ]);
 
 // ROTA DE VISUALIZAÇÃO DE DOAÇÕES GET
 $obRouter->get('/visualizar', [
     function () {
-        return new Response(200, DonationListController::getHome());
+        return new Response(200, DonationListController::getViewDonations());
     }
 ]);
 
 // ROTA DE VISUALIZAÇÃO DE DOAÇÕES POST
 $obRouter->post('/visualizar', [
     function () {
-        return new Response(200, DonationListController::getHome());
+        return new Response(200, DonationListController::getViewDonations());
     }
 ]);
 
@@ -102,3 +103,33 @@ function process_form($formData)
     header("Location: /donatetrack/visualizar");
     exit(); // Certifica-se de que o script seja encerrado após o redirecionamento
 }
+
+
+// Recupera os resultados das doações
+/* try {
+    $db = new PDO('sqlite:database.sqlite', '', '', [
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+    ]);
+
+    // Consulta SQL para recuperar as doações
+    $sql = "SELECT * FROM donations";
+    $stmt = $db->query($sql);
+
+    // Recupera os resultados em um array
+    $doacoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+    // Variáveis para enviar para a função render()
+    $vars = [
+        'name' => 'Nome da Página',
+        'doacoes' => $doacoes
+    ];
+
+    // Renderiza a página HTML com as variáveis
+    $html = View::render('DonationListVew', $vars);
+    // Exibe a página HTML renderizada
+    echo $html;
+} catch (PDOException $e) {
+    // Tratamento de erros na conexão com o banco de dados
+    echo "Erro na conexão com o banco de dados: " . $e->getMessage();
+} */

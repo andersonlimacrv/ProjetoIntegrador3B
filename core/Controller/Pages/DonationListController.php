@@ -11,12 +11,37 @@ class DonationListController extends PageController
      *
      * @return string Returns the name of the HomeController.
      */
-    public static function getHome()
-    {   //VIEW DA HOME
-        $content = View::render('Pages/DonationListVew', ['name' => 'Visualizar doações']);
+    public static function getViewDonations()
+    {
+        $db = new \PDO('sqlite:database.sqlite', '', '', [
+            \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ,
+        ]);
+
+        // Consulta SQL para recuperar as doações
+        $sql = "SELECT * FROM donations";
+        $stmt = $db->query($sql);
+
+        // Recupera os resultados em um array
+        $doacoes = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+
+        //VIEW DA HOME
+
+        $vars = [
+            'name' => 'Visualizar doações',
+            'doacoes_id' => '3',
+            'doacoes_donorId' => '1',
+            'doacoes_donatedItemType' => 'Clothing',
+            'doacoes_donatedItemReferenceId' => '1',
+            'doacoes_donationDate' => '2023-06-01',
+            'doacoes_moneyId' => '',
+        ];
+
+
+        $content = View::render('Pages/DonationListVew', $vars);
 
 
         //RETORNA A VIEW PAGE, USO DE PARENT POIS ESTÁ ESTENDENDO DA CLASSE PAGE, PODERIA SER SELF.
-        return parent::getPage('Controle de Doações', $content);
+        return parent::getPage('Visualizar doações', $content);
     }
 }
