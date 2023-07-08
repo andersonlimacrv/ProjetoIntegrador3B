@@ -1,9 +1,7 @@
 <div class="container mt-5">
-    <h2 class="text-center badge-dark mb-5">{{name}}</h2>
-
-    <div class="container">
+    <div class="table-responsive">
         <table class="table table-hover">
-            <h6 class="card-title text-center"> Última doação cadastrada!</h6>
+            <h6 class="card-title text-center">Última doação cadastrada!</h6>
             <thead class="title-table">
                 <tr>
                     <th scope="col">ID</th>
@@ -16,12 +14,12 @@
             </thead>
             <tbody>
                 <tr>
-                    <th scope="col">{{doacoes_id}}</th>
-                    <th scope="col">{{doacoes_donatedName}}</th>
-                    <th scope="col">{{doacoes_donatedItemType}}</th>
-                    <th scope="col">{{doacoes_donationDate}}</th>
-                    <th scope="col">{{doacoes_moneyValue}}</th>
-                    <th scope="col">{{ultimo_item}}</th>
+                    <td>{{doacoes_id}}</td>
+                    <td>{{doacoes_donatedName}}</td>
+                    <td>{{doacoes_donatedItemType}}</td>
+                    <td>{{doacoes_donationDate}}</td>
+                    <td>{{doacoes_moneyValue}}</td>
+                    <td>{{ultimo_item}}</td>
                 </tr>
             </tbody>
         </table>
@@ -80,9 +78,13 @@
             border-radius: 10px;
         }
         
-        table thead th {
+        table thead th tr {
             background-color: rgb(117, 138, 176, 0.3)!important;
-            font-size: medium;
+            font-size: 10px;
+        }
+        
+        table thead th:first-child {
+            font-size: 10px;
         }
         
         .table-hover table .table {
