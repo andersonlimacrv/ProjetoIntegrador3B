@@ -7,9 +7,9 @@ use App\Utils\View;
 class DonationListController extends PageController
 {
     /**
-     * Método reponsável por retornar o conteúdo (view).
+     * Método responsável por retornar o conteúdo (view).
      *
-     * @return string Returns the name of the HomeController.
+     * @return string Retorna o nome do HomeController.
      */
     public static function getViewDonations()
     {
@@ -53,10 +53,23 @@ class DonationListController extends PageController
             // Caso não haja moneyId associado à doação, atribui um valor padrão ou faça o tratamento adequado
             $doacoes_moneyValue = 'Sem valor associado';
         }
+
         // Consulta SQL para obter o somatório dos valores da coluna 'amount' na tabela 'money'
         $sqlTotalAmount = "SELECT SUM(amount) AS totalAmount FROM money";
         $stmtTotalAmount = $db->query($sqlTotalAmount);
         $totalAmount = $stmtTotalAmount->fetch(\PDO::FETCH_ASSOC)['totalAmount'];
+
+        // Consulta SQL para obter o somatório dos valores da coluna 'estimed_value' na tabela 'items'
+        $sqlTotalAmountEstimated = "SELECT SUM(estimed_value) AS totalAmountEstimed, GROUP_CONCAT(description) AS descriptions FROM items";
+        $stmtTotalAmountEstimated = $db->query($sqlTotalAmountEstimated);
+        $totalAmountEstimatedResult = $stmtTotalAmountEstimated->fetch(\PDO::FETCH_ASSOC);
+        $totalAmountEstimed = $totalAmountEstimatedResult['totalAmountEstimed'];
+        $descriptions = $totalAmountEstimatedResult['descriptions'];
+
+        // Extrair a última descrição
+        $descriptionArray = explode(',', $descriptions);
+        $lastDescription = end($descriptionArray);
+
 
         // Consulta SQL para obter o nome do doador
         $sqlDonorName = "SELECT donorName FROM donors WHERE id = :donorId";
@@ -87,8 +100,9 @@ class DonationListController extends PageController
             $name_item = "Móvel";
         }
         if ($doacao['donatedItemType'] == 'Money') {
-            $name_item = 'Valor Monetário';
+            $name_item = 'Valor Monetário';
         }
+
         // Criação das variáveis
         $vars = [
             'name' => 'Visualizar doação',
@@ -101,6 +115,9 @@ class DonationListController extends PageController
             'doacoes_moneyValue' => $doacoes_moneyValue,
             'doacoes_donatedName' => $doacoes_donorName,
             'total_doacoes_dinheiro' => $totalAmount,
+            'total_doacoes_estimado' => $totalAmountEstimed,
+            'descricao_item' => $descriptions,
+            'ultimo_item' => $lastDescription,
         ];
 
         $content = View::render('Pages/DonationListVew', $vars);

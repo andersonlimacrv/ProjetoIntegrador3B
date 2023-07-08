@@ -21,7 +21,7 @@
                     <th scope="col">{{doacoes_donatedItemType}}</th>
                     <th scope="col">{{doacoes_donationDate}}</th>
                     <th scope="col">{{doacoes_moneyValue}}</th>
-                    <th scope="col"></th>
+                    <th scope="col">{{ultimo_item}}</th>
                 </tr>
             </tbody>
         </table>
@@ -33,13 +33,13 @@
             <div class="card">
                 <div class="card-body text-center">
                     <p class="card-text">Total de Contribuições Monetárias:</p>
-                    <h4 class="card-title">{{total_doacoes_dinheiro}}</h4>
+                    <h4 class="card-title"> R$ {{total_doacoes_dinheiro}}</h4>
                 </div>
             </div>
             <div class="card">
                 <div class="card-body text-center">
                     <p class="card-text">Total de Valores Estimados de Items:</p>
-                    <h4 class="card-title">{{total_doacoes_dinheiro}}</h4>
+                    <h4 class="card-title"> R$ {{total_doacoes_estimado}}</h4>
                 </div>
             </div>
         </div>
@@ -47,23 +47,26 @@
             <div class="card">
                 <div class="card-body text-center">
                     <p class="card-text">Total de Items Já doados à Insituição:</p>
-                    <h4 class="card-title">{{total_doacoes_dinheiro}}</h4>
+                    <h4 class="card-title">{{doacoes_id}}</h4>
                 </div>
             </div>
             <div class="card">
                 <div class="card-body text-center">
                     <p class="card-text">Total de Familias Beneficiadas:</p>
-                    <h4 class="card-title">{{total_doacoes_dinheiro}}</h4>
+                    <h4 class="card-title">255</h4>
                 </div>
             </div>
+        </div>
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-body text-center">
-                    <p class="card-text">Quilos de Alimentos já recebidos:</p>
-                    <h4 class="card-title">{{total_doacoes_dinheiro}}</h4>
+                    <p class="card-text">Lista recente de Itens doados:</p>
+                    <h4 class="card-title">{{descricao_item}}</h4>
                 </div>
             </div>
         </div>
     </div>
+    <div class="margin-bottom"></div>
 
 
     <style>
@@ -79,6 +82,7 @@
         
         table thead th {
             background-color: rgb(117, 138, 176, 0.3)!important;
+            font-size: medium;
         }
         
         .table-hover table .table {
@@ -107,5 +111,9 @@
         .card-text {
             font-size: 18px;
             margin-bottom: 15px;
+        }
+        
+        .margin-bottom {
+            height: 100px;
         }
     </style>
