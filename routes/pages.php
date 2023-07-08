@@ -103,33 +103,3 @@ function process_form($formData)
     header("Location: /donatetrack/visualizar");
     exit(); // Certifica-se de que o script seja encerrado após o redirecionamento
 }
-
-
-// Recupera os resultados das doações
-/* try {
-    $db = new PDO('sqlite:database.sqlite', '', '', [
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
-    ]);
-
-    // Consulta SQL para recuperar as doações
-    $sql = "SELECT * FROM donations";
-    $stmt = $db->query($sql);
-
-    // Recupera os resultados em um array
-    $doacoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-
-    // Variáveis para enviar para a função render()
-    $vars = [
-        'name' => 'Nome da Página',
-        'doacoes' => $doacoes
-    ];
-
-    // Renderiza a página HTML com as variáveis
-    $html = View::render('DonationListVew', $vars);
-    // Exibe a página HTML renderizada
-    echo $html;
-} catch (PDOException $e) {
-    // Tratamento de erros na conexão com o banco de dados
-    echo "Erro na conexão com o banco de dados: " . $e->getMessage();
-} */
